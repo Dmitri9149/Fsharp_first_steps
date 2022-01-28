@@ -1,0 +1,13 @@
+let downloadData url = async {
+    use wc = new System.Net.WebClient()
+    printfn "Downloading data on thread %d" CurrentThread.ManagedThreadId
+    let! data = wc.AsyncDownloadData(System.Uri url)
+    return data.Length }
+
+let downloadedBytes =
+    urls
+    |> Array.map downloadData
+    |> Async.Parallel
+    |> Async.RunSynchronously
+printfn "You downloaded %d characters" (Array.sum downloadedBytes)
+

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+# Alice in Wonderland (from Gutenberg Project)
+#wget "http://www.gutenberg.org/files/11/11-0.txt" -O Alice.txt
+
+curl "http://www.gutenberg.org/files/11/11-0.txt" >> Alice.txt
